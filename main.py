@@ -8,7 +8,7 @@ from bp_projects.projects import app_projects # Blueprint directory import proje
 app.register_blueprint(app_api) # register api routes
 app.register_blueprint(app_projects) # register api routes
 
-@app.errorhandler(404)  # catch for URL not found
+@app.errorhandler(404)  # catch for URL not found x
 def page_not_found(e):
     # note that we set the 404 status explicitly
     return render_template('404.html'), 404
