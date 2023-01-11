@@ -1,25 +1,48 @@
-<!-- Extending the project layout, as this file will do minor customizations -->
-{% extends "layouts/project.html" %}
+{% extends "layouts/base.html" %}
+{% set project = "Home" %}
+ 
+{% block body %}
+<!DOCTYPE html>
+<html>
+ 
+  
+<div class="position-absolute bottom-50 end-50"><button onclick="tipeWriter()">Click me</button></div>
+ 
+<div class="position-absolute bottom-50 end-50">
+  <p id="demo"></p>
+</div>
 
-<!-- Setting up variables to customize "project" details to be specific to kangaroos -->
-{% set project = "Kangaroos" %}
-{% set overview = "https://www.youtube.com/watch?v=qXU-4Dwkv2E" %}
-{% set scrumboard = "https://www.youtube.com/channel/UClIKOsDS5dsfzFA3zveDT3Q?view_as=subscriber" %}
-{% set repo = "https://github.com/avabrooks/Python-Web-Portfolio-Series-Demo" %}
-{% set authors = "https://thesmack.nighthawkcodingsociety.com/digitalPortfolios/"  %}
 
-<!-- Setting up a block replacement to customize background to RINGS -->
-{% block background %}
-    <script src="{{ url_for('static', filename='js/three.r119.min.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/vanta.halo.min.js') }}"></script>
+ 
     <script>
-        VANTA.HALO({
-            el: "body",
-            mouseControls: true,
-            touchControls: true,
-            gyroControls: false,
-            minHeight: 200.00,
-            minWidth: 200.00
-        })
-    </script>
+      var i = 0;
+      var txt = 'Welcome to a lesson created by Quinn Bireley';
+      var speed = 50;
+
+ 
+function typeWriter() {
+    document.getElementById("demo").innerHTML += txt.charAt(i);
+    i++;
+    setTimeout(typeWriter, speed);
+}
+function tipeWriter() {
+  typeWriter();
+}
+</script>
+ 
+</body>
+</html>
+{% endblock %}
+{% block background %}
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {
+  background-image: url('data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBw0NDw0NDQ8NDQ0NDQ0NDQ0NDQ8NDw0NFREWFhURFRUYHSggGBolGxUVITEhJSkrLi4uFx8zODMsNygtLisBCgoKDQ0NDg0PEisZFRkrKysrKysrKysrKystKysrLSsrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrK//AABEIAKwBJgMBIgACEQEDEQH/xAAXAAEBAQEAAAAAAAAAAAAAAAAAAQIH/8QAIhABAQACAAQHAAAAAAAAAAAAAAERIQJBgfEiMVFhcbHw/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/EABQRAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhEDEQA/AO4gAAAlvlrr6KAAAAJICgAAAAAAAAAAAAAAAM8XFZeHEtluLczw6tzfrq0AAAAAAAAAAAAAAAAAAAAAAAAAAAAACZ7qAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAJfZQAAAAAgAAAAAAAAAAAAAAAAAACfvlQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAoAAAAAAAAAJYCgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAARQAAAAAAAAAAAAEwoAAAACSqAAAAAAAAAAAAAAAAAAAAAAAAAAAAACXPLW5yzrKgAAAAAAAAAAAAAAAmFAAAAAAAABKoAAAAA//Z');
+}
+</style>
+</head>
+ 
+</html>
 {% endblock %}
